@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+          <groupId>com.mycom</groupId>
+          <artifactId>myapp</artifactId>
+          <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.mycom</groupId>
+    <artifactId>myapp-ear</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>ear</packaging>
+    <name>EAR Module</name>
+
+
+    <dependencies>
+      		<!-- cfg module -->
+		<dependency>
+			<groupId>com.mycom</groupId>
+			<artifactId>myapp-cfg</artifactId>
+			<version>${project.version}</version>
+			<type>jar</type>
+		</dependency>
+
+		<!-- EJB module -->
+		<dependency>
+			<groupId>com.mycom</groupId>
+			<artifactId>myapp-ejb</artifactId>
+			<version>${project.version}</version>
+			<type>ejb</type>
+		</dependency>
+
+		<!-- REST WAR -->
+		<dependency>
+			<groupId>com.mycom</groupId>
+			<artifactId>myapp-rest</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+
+		<!-- Angular WAR -->
+		<dependency>
+			<groupId>com.mycom</groupId>
+			<artifactId>myapp-ng</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+
+	</dependencies>
+
+</project>

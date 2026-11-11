@@ -1,0 +1,40 @@
+# Maven build output
+**/target/
+
+# Angular and other generated output
+**/dist/
+**/.angular/
+/out-tsc
+/bazel-out
+/tmp
+**/coverage/
+
+# Node dependencies and logs
+**/node_modules/
+myapp-ng/ng/node/
+myapp-ng/node/
+npm-debug.log
+yarn-error.log
+
+# IDE and editor files
+.vscode/
+**/.idea/
+**/.settings/
+**/.project
+**/.classpath
+.c9/
+*.launch
+*.sublime-workspace
+**/.history/
+
+# Miscellaneous
+.sass-cache/
+/connect.lock
+/libpeerconnection.log
+testem.log
+/typings
+__screenshots__/
+
+# System files
+.DS_Store
+Thumbs.db

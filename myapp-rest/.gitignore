@@ -1,0 +1,62 @@
+############################
+# Angular (myapp-ng/ng)
+############################
+
+# Angular build + cache folders
+myapp-ng/ng/dist/
+myapp-ng/ng/.angular/
+myapp-ng/ng/.cache/
+myapp-ng/ng/.vite/
+myapp-ng/ng/.output/
+
+# Angular dependencies
+myapp-ng/ng/node/node_modules/
+############################
+# Node (accidental folder created earlier)
+############################
+
+# Ignore accidental Node installation created by Maven plugin
+myapp-ng/node/
+myapp-ng/ng/node_modules
+# Angular dependencies
+myapp-ng/ng/node/
+
+# Angular OS junk
+myapp-ng/ng/.DS_Store
+
+############################
+# Maven (all modules)
+############################
+
+# Ignore ALL Maven target folders in every module
+**/target/
+
+
+
+############################
+# Logs
+############################
+
+*.log
+
+############################
+# IDE / Workspace
+############################
+
+**/.classpath
+**/.project
+**/.settings/
+**/.metadata/
+**/.idea/
+**/.vscode/
+
+# Keep Eclipse component metadata out of version control
+myapp-ejb/.settings/org.eclipse.wst.common.component
+myapp-rest/.settings/org.eclipse.wst.common.component
+
+############################
+# OS junk
+############################
+
+Thumbs.db
+.DS_Store
