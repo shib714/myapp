@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.mycom.myapp</groupId>
+        <artifactId>myapp</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <groupId>com.mycom.myapp</groupId>
+    <artifactId>myapp-ear</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>ear</packaging>
+    <name>EAR Module</name>
+
+    <dependencies>
+
+        <!-- EJB module -->
+        <dependency>
+            <groupId>com.mycom.myapp</groupId>
+            <artifactId>myapp-ejb</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>ejb</type>
+        </dependency>
+
+        <!-- REST WAR -->
+        <dependency>
+            <groupId>com.mycom.myapp</groupId>
+            <artifactId>myapp-rest</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+
+        <!-- Angular WAR -->
+        <dependency>
+            <groupId>com.mycom.myapp</groupId>
+            <artifactId>myapp-ng</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>myapp</finalName>
+
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-ear-plugin</artifactId>
+                <configuration>
+                    <modules>
+                        <ejbModule>
+                            <groupId>com.mycom.myapp</groupId>
+                            <artifactId>myapp-ejb</artifactId>
+                        </ejbModule>
+                        <webModule>
+                            <groupId>com.mycom.myapp</groupId>
+                            <artifactId>myapp-rest</artifactId>
+                            <contextRoot>myapp/rest</contextRoot>
+                        </webModule>
+                        <webModule>
+                            <groupId>com.mycom.myapp</groupId>
+                            <artifactId>myapp-ng</artifactId>
+                            <contextRoot>myapp/ng</contextRoot>
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>copy-ear-to-weblogic</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <target>
+                                <copy
+                                    file="${project.build.directory}/${project.build.finalName}.ear"
+                                    todir="${weblogic.deploy.dir}"
+                                    overwrite="true" />
+                            </target>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- WebLogic deploy plugin (optional, commented out) -->
+            <!--
+            <plugin>
+                <groupId>com.oracle.weblogic</groupId>
+                <artifactId>weblogic-maven-plugin</artifactId>
+                <version>14.1.1.0</version>
+
+                <configuration>
+                    <adminurl>t3://localhost:7001</adminurl>
+                    <user>weblogic</user>
+                    <password>admin123</password>
+                    <targets>AdminServer</targets>
+                    <upload>true</upload>
+                    <redeploy>true</redeploy>
+                    <source>${project.build.directory}/${project.build.finalName}.ear</source>
+                </configuration>
+
+                <executions>
+                    <execution>
+                        <id>deploy-ear</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>deploy</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            -->
+        </plugins>
+    </build>
+
+</project>

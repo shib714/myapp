@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app">
+    <rewrite-rules>
+        <rewrite-rule>
+            <from>^/myapp/ng/.*$</from>
+            <to>/myapp/ng/index.html</to>
+        </rewrite-rule>
+    </rewrite-rules>
+</weblogic-web-app>
