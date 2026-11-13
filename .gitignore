@@ -18,6 +18,9 @@ yarn-error.log
 
 # IDE and editor files
 .vscode/
+!.vscode/
+.vscode/*
+!.vscode/extensions.json
 **/.idea/
 **/.settings/
 **/.project

@@ -2,12 +2,12 @@ package com.mycom.myapp.service.impl;
 
 import java.util.List;
 
-import com.mycom.myapp.entity.Product;
-import com.mycom.myapp.service.ProductService;
-
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+
+import com.mycom.myapp.entity.Product;
+import com.mycom.myapp.service.ProductService;
 
 
 @Stateless
@@ -29,8 +29,10 @@ public class ProductServiceBean implements ProductService {
 
     @Override
     public List<Product> findAll() {
-        return em.createQuery("SELECT p FROM Product p", Product.class)
+        String jpql = "SELECT p FROM Product p";
+        List<Product> products = em.createQuery(jpql, Product.class)
                  .getResultList();
+        return products;
     }
 
     @Override

@@ -24,7 +24,10 @@ public class ProductResource {
 
 	@GET
 	public List<Product> getAll() {
-		return productService.findAll();
+
+		List<Product> products = productService.findAll();
+
+		return products;
 	}
 
 	@GET
